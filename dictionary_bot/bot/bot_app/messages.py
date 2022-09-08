@@ -7,3 +7,8 @@ M_WELCOME = """
 /train_random
 /train_ten
 """
+main_menu_header = '<b> Теперь вы в главном меню </b>'
+
+# ---- Кнопки в главном меню ---- #
+add_word_button = "Добавить слово"
+show_dictionary = "Посмотреть словарь"
