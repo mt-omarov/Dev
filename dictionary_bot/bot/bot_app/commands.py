@@ -4,8 +4,8 @@ from aiogram.types import message
 from aiogram import types
 from .logger import log
 
-from bot.bot_app.db_helper import check_dictionary
-from bot.bot_app.keyboards import get_keyboard_for_menu 
+from .db_helper import check_dictionary
+from .keyboards import get_keyboard_for_menu 
 from .bot import dp
 from . import messages
 
