@@ -1,3 +1,4 @@
+from tempfile import TemporaryFile
 from aiogram.types import InlineKeyboardButton
 from asgiref.sync import sync_to_async
 from django.db.models import Q
@@ -8,7 +9,7 @@ from .logger import log
 def check_dictionary():
     try:
         if Word.objects.all().exists():
-            db_word = Word.objects.first()
+            True
         else:
             return False
     except Exception as e:
@@ -43,4 +44,19 @@ def edit_word(word_id, new_title, new_definition):
             return False
     except Exception as e:
         log.warning(f'Ошибка при вызове /edit_word:: {e} – {word_id}')
+
+@sync_to_async
+def get_list_words():
+    try:
+        if Word.objects.exists():
+            words_dictionary = dict()
+            list_words = Word.objects.order_by('title')
+            for i in list_words:
+                words_dictionary[i.title] = i.definition
+            return words_dictionary
+        else:
+            return None
+    except Exception as e:
+        log.warning(f'Ошибка при вызове /get_list_words:: {e}')
+
 
