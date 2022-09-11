@@ -1,2 +1,2 @@
-from .bot import dp, bot_start
+from .bot import dp
 from . import commands, random
